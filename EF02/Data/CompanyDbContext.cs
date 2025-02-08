@@ -81,7 +81,6 @@ namespace EF02.Data
         }
         public  DbSet<Employee> Employees { get; set; }
         public  DbSet<Department> Departments { get; set; }
-        public DbSet<Computer>Computers { get; set; }
-        public DbSet<Computer_Employee> Company_Employees { get; set; }
+      
     }
 }
