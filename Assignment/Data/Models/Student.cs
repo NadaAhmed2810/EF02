@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +18,10 @@ namespace Assignment.Data.Models
         public Address DetailedAddress { get; set; } = null!;
         public ICollection<StudentCourse> StudentCourses { get; set; }
 
+
+        [ForeignKey(nameof(Models.Department.Id))]
         public int DepartmentId { get; set; }
+
         public Department Department { get; set; }
 
     }

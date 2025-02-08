@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,10 @@ namespace Assignment.Data.Models
         public ICollection<StudentCourse> StudentCourses { get; set; }
         public ICollection<CourseInstructor> CourseInstructors { get; set; }
 
+        [ForeignKey(nameof(Models.Topic.Id))]
         public int TopicId { get; set; }
+
+        [InverseProperty(nameof(Models.Topic.Courses))]
         public Topic Topic { get; set; } = null!;
 
     }

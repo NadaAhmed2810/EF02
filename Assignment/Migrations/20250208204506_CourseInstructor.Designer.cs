@@ -4,6 +4,7 @@ using Assignment.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment.Migrations
 {
     [DbContext(typeof(ITIDbContext))]
-    partial class ITIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250208204506_CourseInstructor")]
+    partial class CourseInstructor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +52,7 @@ namespace Assignment.Migrations
 
                     b.HasIndex("TopicId");
 
-                    b.ToTable("Courses", (string)null);
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("Assignment.Data.Models.CourseInstructor", b =>
@@ -67,7 +70,7 @@ namespace Assignment.Migrations
 
                     b.HasIndex("InstructorId");
 
-                    b.ToTable("CourseInstructors", (string)null);
+                    b.ToTable("CourseInstructors");
                 });
 
             modelBuilder.Entity("Assignment.Data.Models.Department", b =>
@@ -90,7 +93,7 @@ namespace Assignment.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Departments", (string)null);
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("Assignment.Data.Models.Instructor", b =>
@@ -125,7 +128,7 @@ namespace Assignment.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Instructors", (string)null);
+                    b.ToTable("Instructors");
                 });
 
             modelBuilder.Entity("Assignment.Data.Models.Student", b =>
@@ -158,7 +161,7 @@ namespace Assignment.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Students", (string)null);
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("Assignment.Data.Models.StudentCourse", b =>
@@ -176,7 +179,7 @@ namespace Assignment.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("StudentCourses", (string)null);
+                    b.ToTable("StudentCourses");
                 });
 
             modelBuilder.Entity("Assignment.Data.Models.Topic", b =>
@@ -193,7 +196,7 @@ namespace Assignment.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Topics", (string)null);
+                    b.ToTable("Topics");
                 });
 
             modelBuilder.Entity("Assignment.Data.Models.Course", b =>
@@ -253,7 +256,7 @@ namespace Assignment.Migrations
 
                             b1.HasKey("InstructorId");
 
-                            b1.ToTable("Instructors", (string)null);
+                            b1.ToTable("Instructors");
 
                             b1.WithOwner()
                                 .HasForeignKey("InstructorId");
@@ -292,7 +295,7 @@ namespace Assignment.Migrations
 
                             b1.HasKey("StudentId");
 
-                            b1.ToTable("Students", (string)null);
+                            b1.ToTable("Students");
 
                             b1.WithOwner()
                                 .HasForeignKey("StudentId");

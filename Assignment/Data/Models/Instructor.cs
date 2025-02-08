@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,10 @@ namespace Assignment.Data.Models
 
         public Address DetailedAddress { get; set; } = null!;
 
+        [ForeignKey(nameof(Models.Department.Id))]
         public int DepartmentId { get; set; }
+
+        [InverseProperty(nameof(Models.Department.Instructor))]
         public Department Department { get; set; }
 
         public ICollection<CourseInstructor> CourseInstructors { get; set; }
