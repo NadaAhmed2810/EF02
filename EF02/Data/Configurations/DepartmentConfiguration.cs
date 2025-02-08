@@ -31,7 +31,7 @@ namespace EF02.Data.Configurations
                 builder.Property(D => D.CreationDate)
                       // .HasDefaultValue(DateOnly.FromDateTime(DateTime.Now))//Time of Create Migration
                       //.HasDefaultValueSql("GETDATE()");
-                      .HasComputedColumnSql("GETDATE()");
+                      .HasComputedColumnSql("Cast(GETDATE() as Date)");
            
                builder.HasMany(D => D.Employees)
                       .WithOne(e => e.Department)

@@ -28,6 +28,7 @@ namespace EF02.Data.Configurations
                        .IsRequired(false)
                        .HasForeignKey<Department>(D => D.ManagerId)
                        .OnDelete(DeleteBehavior.SetNull);
+            builder.OwnsOne(E => E.DetailedAddress,Address=>Address.WithOwner());
         }
     }
 }
