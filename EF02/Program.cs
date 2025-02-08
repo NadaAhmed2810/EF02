@@ -1,6 +1,4 @@
 ﻿
-
-
 using EF02.Data;
 using EF02.Data.Models;
 using Microsoft.EntityFrameworkCore;
@@ -78,7 +76,7 @@ namespace EF02
             //    Console.WriteLine(context.Entry(employee).State);//Detached 
 
             //    Console.WriteLine($"Name:{employee.Name},Age:{employee.Age},Email={employee.Email},Phone:{employee.Phone}");
-            }
+            // }
             #endregion
 
 

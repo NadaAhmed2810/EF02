@@ -44,5 +44,19 @@ namespace EF02.Data.Models
         public double NetSalary => Salary - Salary * .2;
         //public double GetNetSalary=> Salary - Salary * .2;
         public  string Address { get; set; }
+
+        [ForeignKey(nameof(Department))]
+        public int? DepartmentId { get; set; }//foreign Key for Table Department [Work]
+
+
+
+
+        //Navigational Property [one]
+        [InverseProperty(nameof(Models.Department.Employees))]
+        public Department? Department { get; set; }
+
+        //Navigational property [one]
+        [InverseProperty(nameof (Models.Department.Manager))]
+        public Department? ManagedDepartment { get; set; }
     }
 }

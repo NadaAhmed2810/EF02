@@ -1,4 +1,4 @@
-﻿using Common1;
+﻿
 using EF02.Data.Configurations;
 using EF02.Data.Models;
 using Microsoft.EntityFrameworkCore;

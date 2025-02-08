@@ -4,6 +4,7 @@ using EF02.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EF02.Data.Migrations
 {
     [DbContext(typeof(CompanyDbContext))]
-    partial class CompanyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250208084908_OneTOManyRelationalshipBy2NP")]
+    partial class OneTOManyRelationalshipBy2NP
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,9 +38,6 @@ namespace EF02.Data.Migrations
                         .HasColumnType("date")
                         .HasComputedColumnSql("GETDATE()");
 
-                    b.Property<int>("ManagerId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -45,9 +45,6 @@ namespace EF02.Data.Migrations
                         .HasColumnName("DepartmentName");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ManagerId")
-                        .IsUnique();
 
                     b.ToTable("Department", "dbo");
                 });
@@ -97,17 +94,6 @@ namespace EF02.Data.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("EF02.Data.Models.Department", b =>
-                {
-                    b.HasOne("EF02.Data.Models.Employee", "Manager")
-                        .WithOne("ManagedDepartment")
-                        .HasForeignKey("EF02.Data.Models.Department", "ManagerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Manager");
-                });
-
             modelBuilder.Entity("EF02.Data.Models.Employee", b =>
                 {
                     b.HasOne("EF02.Data.Models.Department", "Department")
@@ -120,11 +106,6 @@ namespace EF02.Data.Migrations
             modelBuilder.Entity("EF02.Data.Models.Department", b =>
                 {
                     b.Navigation("Employees");
-                });
-
-            modelBuilder.Entity("EF02.Data.Models.Employee", b =>
-                {
-                    b.Navigation("ManagedDepartment");
                 });
 #pragma warning restore 612, 618
         }
