@@ -18,12 +18,12 @@ namespace EF02.Data.Models
         public ICollection<Employee> Employees { get; set; }=new HashSet<Employee>();
 
         [ForeignKey(nameof(Manager))]
-        public int ManagerId {  get; set; } 
+        public int? ManagerId {  get; set; } 
 
         //Navigational Property[One]
         [InverseProperty(nameof(Models.Employee.ManagedDepartment))]
         //[ForeignKey(nameof(ManagerId))]
-        public Employee Manager { get; set; } = null!;
+        public Employee Manager { get; set; }
        
     }
 }

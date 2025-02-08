@@ -64,6 +64,18 @@ namespace EF02.Data
             //modelBuilder.ApplyConfiguration(new EmployeeConfigurations());
             //modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
 
+
+
+
+                       
+                       
+
+            #region OneToManyRelationShip
+            //modelBuilder.Entity<Employee>()
+            //            .HasOne(E => E.Department)
+            //             .WithMany(/*D => D.Employees*/);
+            // 
+            #endregion
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         }

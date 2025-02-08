@@ -21,6 +21,13 @@ namespace EF02.Data.Configurations
                      .HasColumnType(SQLServerDatatypes.varchar)
                      .HasMaxLength(50)
                      .IsRequired();
+
+           builder
+                       .HasOne(E => E.ManagedDepartment)
+                       .WithOne(D => D.Manager)
+                       .IsRequired(false)
+                       .HasForeignKey<Department>(D => D.ManagerId)
+                       .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

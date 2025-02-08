@@ -32,7 +32,13 @@ namespace EF02.Data.Configurations
                       // .HasDefaultValue(DateOnly.FromDateTime(DateTime.Now))//Time of Create Migration
                       //.HasDefaultValueSql("GETDATE()");
                       .HasComputedColumnSql("GETDATE()");
-          
+           
+               builder.HasMany(D => D.Employees)
+                      .WithOne(e => e.Department)
+                    //.HasForeignKey("Department")
+                      .IsRequired(false)
+                      .OnDelete(DeleteBehavior.SetNull);
+
         }
     }
 }
