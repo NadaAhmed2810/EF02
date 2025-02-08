@@ -38,10 +38,11 @@ namespace EF02.Data.Models
         [RegularExpression("")]
         [DataType(DataType.Password)]
         public string? Password { get; set; }
-        //Derived Attribute 
 
+        //Derived Attribute 
         [NotMapped]
         public double NetSalary => Salary - Salary * .2;
         //public double GetNetSalary=> Salary - Salary * .2;
+        public  string Address { get; set; }
     }
 }

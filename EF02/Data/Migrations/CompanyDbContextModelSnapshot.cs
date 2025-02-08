@@ -83,7 +83,7 @@ namespace EF02.Data.Migrations
 
                     b.HasKey("Code");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", (string)null);
                 });
 #pragma warning restore 612, 618
         }

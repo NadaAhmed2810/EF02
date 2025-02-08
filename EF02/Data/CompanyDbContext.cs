@@ -67,7 +67,7 @@ namespace EF02.Data
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         }
-        DbSet<Employee> Employees { get; set; }
-       DbSet<Department> Departments { get; set; }
+        public  DbSet<Employee> Employees { get; set; }
+        public  DbSet<Department> Departments { get; set; }
     }
 }
